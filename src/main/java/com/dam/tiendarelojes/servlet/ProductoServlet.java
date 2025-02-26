@@ -23,17 +23,17 @@ import java.io.InputStream;
  *
  * @author ruben
  */
-@WebServlet(name = "ProductoServlet", urlPatterns = {"/ProductoServlet"})
+@WebServlet(name = "ProductoServlet", urlPatterns = { "/ProductoServlet" })
 @MultipartConfig
 public class ProductoServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param req servlet request
+     * @param req  servlet request
      * @param resp servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +45,7 @@ public class ProductoServlet extends HttpServlet {
             // Inicializamos ProductoDAOImpl
             ProductoDAO productoDao = new ProductoDAOImpl();
             ProductoDto productoDto = productoDao.obtenerProducto(id);
-            
+
             if (productoDto != null) {
                 // Asignamos el producto al request
                 req.setAttribute("producto", productoDto);
@@ -64,15 +64,15 @@ public class ProductoServlet extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             // Inicializamos ProductoDAOImpl
             ProductoDAO productoDao = new ProductoDAOImpl();
@@ -87,12 +87,12 @@ public class ProductoServlet extends HttpServlet {
 
             // Realizamos comprobaciones
             // Guardamos el producto
-            productoDao.guardarProducto(new Producto(nombre, detalle, fileContent.readAllBytes(), precio, tipo));
+            productoDao.guardarProducto(new Producto(nombre, detalle, "fileContent.readAllBytes()", precio, tipo));
             // Redirigimos
             response.sendRedirect("PrincipalServlet");
         } catch (Exception e) {
             response.sendRedirect("ErrorServlet");
         }
     }
-    
+
 }

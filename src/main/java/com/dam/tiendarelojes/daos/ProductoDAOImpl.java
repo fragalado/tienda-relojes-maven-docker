@@ -50,18 +50,13 @@ public class ProductoDAOImpl implements ProductoDAO {
             dto.setDetalle(producto.getDetalle());
             dto.setTipo(producto.getTipo());
             dto.setPrecio(producto.getPrecio());
-
-            // Convertir byte[] a Base64 para mostrar en la vista
-            if (producto.getFoto() != null) {
-                String fotoBase64 = Base64.getEncoder().encodeToString(producto.getFoto());
-                dto.setFotoBase64(fotoBase64);
-            }
+            dto.setRutaFoto(producto.getFoto());
 
             // Comprobamos si esta comprado (tiene idUsuario)
             if (producto.getUsuario() != null) {
                 dto.setEstaComprado(true);
             }
-            
+
             return dto;
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,12 +82,7 @@ public class ProductoDAOImpl implements ProductoDAO {
                 dto.setDetalle(producto.getDetalle());
                 dto.setTipo(producto.getTipo());
                 dto.setPrecio(producto.getPrecio());
-
-                // Convertir byte[] a Base64 para mostrar en la vista
-                if (producto.getFoto() != null) {
-                    String fotoBase64 = Base64.getEncoder().encodeToString(producto.getFoto());
-                    dto.setFotoBase64(fotoBase64);
-                }
+                dto.setRutaFoto(producto.getFoto());
 
                 // Comprobamos si esta comprado (tiene idUsuario)
                 if (producto.getUsuario() != null) {
@@ -115,7 +105,8 @@ public class ProductoDAOImpl implements ProductoDAO {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // Consulta HQL para obtener todos los productos
-            Query<Producto> query = session.createQuery("FROM Producto p WHERE p.usuario.id = :idUsuario", Producto.class);
+            Query<Producto> query = session.createQuery("FROM Producto p WHERE p.usuario.id = :idUsuario",
+                    Producto.class);
             query.setParameter("idUsuario", id);
             List<Producto> productos = query.getResultList();
 
@@ -128,12 +119,7 @@ public class ProductoDAOImpl implements ProductoDAO {
                 dto.setTipo(producto.getTipo());
                 dto.setPrecio(producto.getPrecio());
                 dto.setEstaComprado(true);
-
-                // Convertir byte[] a Base64 para mostrar en la vista
-                if (producto.getFoto() != null) {
-                    String fotoBase64 = Base64.getEncoder().encodeToString(producto.getFoto());
-                    dto.setFotoBase64(fotoBase64);
-                }
+                dto.setRutaFoto(producto.getFoto());
 
                 productosDto.add(dto);
             }

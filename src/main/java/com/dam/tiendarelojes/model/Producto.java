@@ -21,9 +21,9 @@ import java.time.LocalDateTime;
  * @author ruben
  */
 @Entity
-@Table(name="productos")
+@Table(name = "productos")
 public class Producto {
-    
+
     // Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,8 +32,8 @@ public class Producto {
     private String nombre;
     @Column(nullable = false, length = 1000)
     private String detalle;
-    @Column(nullable = false, columnDefinition = "LONGBLOB")
-    private byte[] foto;
+    @Column(nullable = false)
+    private String rutaFoto;
     @Column(nullable = false)
     private float precio;
     @Column(nullable = false)
@@ -41,24 +41,24 @@ public class Producto {
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     @Column(nullable = false)
     private String tipo;
-    
+
     @ManyToOne
-    @JoinColumn(name="idUsuario")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
-    
+
     // Constructor
 
-    public Producto(String nombre, String detalle, byte[] foto, float precio, String tipo) {
+    public Producto(String nombre, String detalle, String rutaFoto, float precio, String tipo) {
         this.nombre = nombre;
         this.detalle = detalle;
-        this.foto = foto;
+        this.rutaFoto = rutaFoto;
         this.precio = precio;
         this.tipo = tipo;
     }
-    
+
     public Producto() {
     }
-    
+
     // Getter y Setter
 
     public int getId() {
@@ -93,12 +93,12 @@ public class Producto {
         this.usuario = usuario;
     }
 
-    public byte[] getFoto() {
-        return foto;
+    public String getFoto() {
+        return rutaFoto;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setFoto(String rutaFoto) {
+        this.rutaFoto = rutaFoto;
     }
 
     public float getPrecio() {
@@ -124,5 +124,5 @@ public class Producto {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
 }

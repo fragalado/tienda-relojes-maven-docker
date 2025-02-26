@@ -9,41 +9,42 @@ package com.dam.tiendarelojes.dto;
  * @author ruben
  */
 public class ProductoDto {
- 
+
     // Propiedades
     private int id;
     private String nombre;
     private String detalle;
     private String tipo;
-    private String fotoBase64;
+    private String rutaFoto;
     private float precio;
     private boolean estaComprado = false;
-    
+
     // Constructores
 
-    public ProductoDto(int id, String nombre, String detalle, String tipo, String fotoBase64, float precio, boolean estaComprado) {
+    public ProductoDto(int id, String nombre, String detalle, String tipo, String rutaFoto, float precio,
+            boolean estaComprado) {
         this.id = id;
         this.nombre = nombre;
         this.detalle = detalle;
         this.tipo = tipo;
-        this.fotoBase64 = fotoBase64;
+        this.rutaFoto = rutaFoto;
         this.precio = precio;
         this.estaComprado = estaComprado;
     }
-    
+
     public ProductoDto() {
     }
-    
+
     // Getter y Setter
 
-    public int getId(){
+    public int getId() {
         return id;
     }
-    
-    public void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -68,12 +69,12 @@ public class ProductoDto {
         this.tipo = tipo;
     }
 
-    public String getFotoBase64() {
-        return fotoBase64;
+    public String getRutaFoto() {
+        return rutaFoto;
     }
 
-    public void setFotoBase64(String fotoBase64) {
-        this.fotoBase64 = fotoBase64;
+    public void setRutaFoto(String rutaFoto) {
+        this.rutaFoto = rutaFoto;
     }
 
     public float getPrecio() {
@@ -83,7 +84,7 @@ public class ProductoDto {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    
+
     public boolean getEstaComprado() {
         return estaComprado;
     }
@@ -91,7 +92,5 @@ public class ProductoDto {
     public void setEstaComprado(boolean estaComprado) {
         this.estaComprado = estaComprado;
     }
-    
-    
-    
+
 }

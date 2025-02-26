@@ -6,8 +6,15 @@ package com.dam.tiendarelojes.servlet;
 
 import com.dam.tiendarelojes.daos.UsuarioDAOImpl;
 import com.dam.tiendarelojes.daos.UsuarioDAO;
+import com.dam.tiendarelojes.model.Producto;
 import com.dam.tiendarelojes.model.Usuario;
+import com.dam.tiendarelojes.util.HibernateUtil;
+
 import java.io.IOException;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,18 +29,59 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
+    @SuppressWarnings("deprecation")
+    @Override
+    public void init() throws ServletException {
+        // Inicializamos datos en la tabla usuario y productos
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            // Creamos los usuarios
+            Usuario usuario1 = new Usuario("53965130T", "123456");
+            Usuario usuario2 = new Usuario("53965131D", "123456");
+
+            // Creamos los productos
+            Producto producto1 = new Producto("Rolex Datejust", "Detalle del producto", "static/rolex-datejust.avif",
+                    9600, "reloj-pulsera");
+            Producto producto2 = new Producto("Rolex Day-date", "Detalle del producto", "static/rolex-day-date.png",
+                    9600, "reloj-pulsera");
+            Producto producto3 = new Producto("Rolex GMT Master II", "Detalle del producto",
+                    "static/rolex-gmt-master-ii.avif",
+                    9600, "reloj-pulsera");
+            Producto producto4 = new Producto("Rolex Submariner", "Detalle del producto",
+                    "static/rolex-submariner.avif",
+                    9600, "reloj-pulsera");
+
+            // Guardamos los usuarios y los productos en la base de datos
+            session.save(usuario1);
+            session.save(usuario2);
+            session.save(producto1);
+            session.save(producto2);
+            session.save(producto3);
+            session.save(producto4);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             // Inicializamos UsuarioDAOImpl
             UsuarioDAO usuarioDao = new UsuarioDAOImpl();
@@ -56,7 +104,7 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {
             response.sendRedirect("ErrorServlet");
         }
-        
+
     }
-    
+
 }
