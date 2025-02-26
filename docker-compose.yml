@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: java-web-app
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=duarte
+      - DB_USER=root
+      - DB_PASSWORD=zepxuH-nyzfa5
+
+  db:
+    image: mysql:8.4.4
+    container_name: mysql-db-proyecto
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: zepxuH-nyzfa5
+      MYSQL_DATABASE: duarte
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

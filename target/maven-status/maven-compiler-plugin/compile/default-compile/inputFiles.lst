@@ -1,0 +1,17 @@
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\daos\ProductoDAO.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\daos\ProductoDAOImpl.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\daos\UsuarioDAO.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\daos\UsuarioDAOImpl.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\dto\ProductoDto.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\JakartaRestConfiguration.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\model\Producto.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\model\Usuario.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\resources\JakartaEE11Resource.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\ErrorServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\LoginServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\LogoutServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\PrincipalServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\ProductoServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\VerBoxServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\servlet\VerTablaServlet.java
+C:\Users\remot\Desktop\app-relojes-maven\tienda-relojes-jsp-servlet\src\main\java\com\dam\tiendarelojes\util\HibernateUtil.java
