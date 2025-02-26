@@ -77,7 +77,7 @@
             <div class="row mt-4">
                 <!-- Imagen del producto -->
                 <div class="col-md-6 text-center">
-                    <img src="data:image/jpeg;base64,<%=producto.getFotoBase64()%>" 
+                    <img src="<%=producto.getRutaFoto()%>" 
                          alt="<%=producto.getNombre()%>" 
                          class="img-fluid rounded" 
                          style="max-width: 100%; height: auto;">

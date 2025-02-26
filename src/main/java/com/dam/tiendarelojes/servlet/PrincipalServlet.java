@@ -24,22 +24,23 @@ import java.util.List;
  *
  * @author ruben
  */
-@WebServlet(name = "PrincipalServlet", urlPatterns = {"/PrincipalServlet"})
+@WebServlet(name = "PrincipalServlet", urlPatterns = { "/PrincipalServlet" })
 public class PrincipalServlet extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             // Control de sesion
             HttpSession session = request.getSession(false);
@@ -59,8 +60,8 @@ public class PrincipalServlet extends HttpServlet {
 
             // Obtenemos el usuario por el dni para poder mostrar campo calculado en vista
             UsuarioDAO usuarioDao = new UsuarioDAOImpl();
-            Usuario usuario = usuarioDao.obtenerUsuarioPorDni(session.getAttribute("user").toString());
-            
+            Usuario usuario = usuarioDao.obtenerUsuarioPorDniConProductos(session.getAttribute("user").toString());
+
             request.setAttribute("totalPrecioProductos", usuario.getTotalPrecioProductosComprados());
             request.setAttribute("totalProductos", usuario.getCantidadProductosComprados());
 
@@ -71,5 +72,5 @@ public class PrincipalServlet extends HttpServlet {
             response.sendRedirect("ErrorServlet");
         }
     }
-    
+
 }

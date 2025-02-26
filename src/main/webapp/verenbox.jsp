@@ -75,7 +75,7 @@
                             for (ProductoDto producto : productos) {
                     %>
                     <article class="producto-box">
-                        <img src="data:image/png;base64,<%= producto.getFotoBase64()%>" alt="Imagen de <%= producto.getNombre()%>">
+                        <img src="<%= producto.getRutaFoto()%>" alt="Imagen de <%= producto.getNombre()%>">
                         <h2><%= producto.getNombre()%></h2>
                         <p>
                             <%

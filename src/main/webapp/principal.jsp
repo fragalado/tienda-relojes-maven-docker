@@ -168,7 +168,7 @@
                         if (productos != null) {
                             for (ProductoDto producto : productos) {
                     %><div class="col-xl-3 col-lg-4 col-md-6 col-12 mt-3"><div class="card" style="width: 18rem;">
-                            <img class="card-img-top" style="width: 100%; height: 350px; object-fit: cover;" src="data:image/jpeg;base64,<%=producto.getFotoBase64()%>" alt="Imagen de <%=producto.getNombre()%>"/>
+                            <img class="card-img-top" style="width: 100%; height: 350px; object-fit: cover; max-height: 950px;" src="<%=producto.getRutaFoto()%>" alt="Imagen de <%=producto.getNombre()%>"/>
                             <div class="card-body">
                                 <h5 class="card-title text-center"><%=producto.getNombre()%></h5>
                                 <p class="card-text">

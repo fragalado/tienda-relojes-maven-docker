@@ -8,7 +8,6 @@ import com.dam.tiendarelojes.dto.ProductoDto;
 import com.dam.tiendarelojes.model.Producto;
 import com.dam.tiendarelojes.util.HibernateUtil;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

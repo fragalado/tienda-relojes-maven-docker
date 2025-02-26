@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 
 /**
  * Implementacion de la interfaz UsuarioDAO
+ * 
  * @author ruben
  */
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -28,7 +29,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } 
+        }
     }
 
     @Override
@@ -36,15 +37,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         // Obtenemos el usuario por el id
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Usuario usuario = session.createQuery("FROM Usuario WHERE dni = :dni", Usuario.class)
-                          .setParameter("dni", dni)
-                          .uniqueResult();
-            if (usuario != null){
-                Hibernate.initialize(usuario.getProductos()); // Obtenemos los productos
-            }
+                    .setParameter("dni", dni)
+                    .uniqueResult();
             return usuario;
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
-    
+
+    @Override
+    public Usuario obtenerUsuarioPorDniConProductos(String dni) {
+        // Obtenemos el usuario por el id
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Usuario usuario = session.createQuery("FROM Usuario WHERE dni = :dni", Usuario.class)
+                    .setParameter("dni", dni)
+                    .uniqueResult();
+            if (usuario != null) {
+                Hibernate.initialize(usuario.getProductos()); // Obtenemos los productos
+            }
+            return usuario;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }

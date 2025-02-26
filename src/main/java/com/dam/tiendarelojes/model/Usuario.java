@@ -21,48 +21,48 @@ import java.util.List;
  * @author ruben
  */
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios")
 public class Usuario {
-    
+
     // Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 12)
+    @Column(nullable = false, length = 12, unique = true)
     private String dni;
     @Column(nullable = false, length = 50)
     private String password;
-    
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Producto> productos;
-    
+
     // Campo calculado: suma total de precios de los productos del usuario
     @Transient
-    public float getTotalPrecioProductosComprados(){
-        if (productos == null){
+    public float getTotalPrecioProductosComprados() {
+        if (productos == null) {
             return 0.0f;
         }
         return productos.stream()
                 .map(Producto::getPrecio)
                 .reduce(0.0f, Float::sum);
     }
-    
+
     // Campo calculado: cantidad de productos
     @Transient
-    public int getCantidadProductosComprados(){
+    public int getCantidadProductosComprados() {
         return (productos != null) ? productos.size() : 0;
     }
-    
+
     // Constructores
 
     public Usuario(String dni, String password) {
         this.dni = dni;
         this.password = password;
     }
-    
+
     public Usuario() {
     }
-    
+
     // Getter y Setter
 
     public int getId() {
@@ -88,9 +88,9 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public List<Producto> getProductos(){
+
+    public List<Producto> getProductos() {
         return productos;
     }
-    
+
 }

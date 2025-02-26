@@ -9,6 +9,8 @@ import com.dam.tiendarelojes.daos.ProductoDAO;
 import com.dam.tiendarelojes.daos.ProductoDAOImpl;
 import com.dam.tiendarelojes.dto.ProductoDto;
 import jakarta.servlet.RequestDispatcher;
+
+import java.io.File;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -18,6 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import java.io.InputStream;
+import java.nio.file.Paths;
 
 /**
  *
@@ -83,11 +86,29 @@ public class ProductoServlet extends HttpServlet {
             float precio = Float.parseFloat(request.getParameter("precio"));
             String tipo = request.getParameter("tipo");
             Part filePart = request.getPart("foto");
-            InputStream fileContent = filePart.getInputStream();
+
+            // Obtener el nombre original del archivo
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+
+            // Definir la ruta donde se guardará la imagen
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "static";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir(); // Crea el directorio si no existe
+            }
+
+            // Ruta completa donde se guardará la imagen
+            String filePath = uploadPath + File.separator + fileName;
+
+            // Guardar el archivo en el directorio
+            filePart.write(filePath);
+
+            // Guardar solo la ruta relativa en la base de datos
+            String imagePath = "static/" + fileName;
 
             // Realizamos comprobaciones
             // Guardamos el producto
-            productoDao.guardarProducto(new Producto(nombre, detalle, "fileContent.readAllBytes()", precio, tipo));
+            productoDao.guardarProducto(new Producto(nombre, detalle, imagePath, precio, tipo));
             // Redirigimos
             response.sendRedirect("PrincipalServlet");
         } catch (Exception e) {
