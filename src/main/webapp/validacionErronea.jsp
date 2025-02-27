@@ -1,7 +1,7 @@
 <%-- 
     Document   : validacionErronea
     Created on : 26 feb 2025, 12:56:21
-    Author     : ruben
+    Author     : Alvaro Duarte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

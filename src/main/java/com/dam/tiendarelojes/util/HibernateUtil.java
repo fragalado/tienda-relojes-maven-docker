@@ -7,13 +7,13 @@ package com.dam.tiendarelojes.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
 /**
- *
- * @author ruben
+ * HibernateUtil para crear la sesion
+ * 
+ * @author Alvaro Duarte
  */
 public class HibernateUtil {
-    
+
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {

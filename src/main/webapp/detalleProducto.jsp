@@ -1,7 +1,7 @@
 <%-- 
     Document   : detalleProducto
     Created on : 26 feb 2025, 12:28:24
-    Author     : ruben
+    Author     : Alvaro Duarte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -106,7 +106,7 @@
                         %>
                     </p>
                     <p><strong>Descripción:</strong> <%=producto.getDetalle()%></p>
-                    <p><strong>Precio:</strong> <span class="text-success">$<%=producto.getPrecio()%></span></p>
+                    <p><strong>Precio:</strong> <span class="text-success"><%=producto.getPrecio()%>€</span></p>
 
                     <!-- Botón para comprar -->
                     <!--<a href="#" class="btn btn-primary">Comprar</a>-->

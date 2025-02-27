@@ -17,8 +17,9 @@ import jakarta.persistence.Transient;
 import java.util.List;
 
 /**
- *
- * @author ruben
+ * Entidad Usuario que representa la tabla usuarios de la base de datos
+ * 
+ * @author Alvaro Duarte
  */
 @Entity
 @Table(name = "usuarios")

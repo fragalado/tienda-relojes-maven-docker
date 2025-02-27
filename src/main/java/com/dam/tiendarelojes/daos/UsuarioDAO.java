@@ -9,7 +9,7 @@ import com.dam.tiendarelojes.model.Usuario;
 /**
  * Interfaz que define los metodos que daran servicio a Usuario
  * 
- * @author ruben
+ * @author Alvaro Duarte
  */
 public interface UsuarioDAO {
 

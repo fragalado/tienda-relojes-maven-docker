@@ -23,8 +23,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /**
- *
- * @author ruben
+ * Servlet para el Login
+ * 
+ * @author Alvaro Duarte
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {

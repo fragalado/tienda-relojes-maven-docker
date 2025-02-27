@@ -12,10 +12,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author ruben
+ * Servlet para Error
+ * 
+ * @author Alvaro Duarte
  */
-@WebServlet(name = "ErrorServlet", urlPatterns = {"/ErrorServlet"})
+@WebServlet(name = "ErrorServlet", urlPatterns = { "/ErrorServlet" })
 public class ErrorServlet extends HttpServlet {
 
     @Override
@@ -23,7 +24,5 @@ public class ErrorServlet extends HttpServlet {
         // Mostramos vista error
         resp.sendRedirect("error.jsp");
     }
-
-    
 
 }

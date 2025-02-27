@@ -13,7 +13,7 @@ import org.hibernate.Transaction;
 /**
  * Implementacion de la interfaz UsuarioDAO
  * 
- * @author ruben
+ * @author Alvaro Duarte
  */
 public class UsuarioDAOImpl implements UsuarioDAO {
 

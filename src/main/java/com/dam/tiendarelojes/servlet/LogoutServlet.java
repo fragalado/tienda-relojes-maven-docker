@@ -13,17 +13,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /**
- *
- * @author ruben
+ * Servlet para el Logout - Cerrar sesion
+ * 
+ * @author Alvaro Duarte
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/LogoutServlet"})
+@WebServlet(name = "LogoutServlet", urlPatterns = { "/LogoutServlet" })
 public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Cerramos la sesion
         HttpSession session = req.getSession(false);
-        
+
         if (session != null) {
             session.invalidate(); // Destruir la sesión
         }

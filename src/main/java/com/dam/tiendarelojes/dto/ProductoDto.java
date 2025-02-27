@@ -5,12 +5,14 @@
 package com.dam.tiendarelojes.dto;
 
 /**
- *
- * @author ruben
+ * ProductoDto - Clase que se llevará a la vista
+ * 
+ * @author Alvaro Duarte
  */
 public class ProductoDto {
 
     // Propiedades
+
     private int id;
     private String nombre;
     private String detalle;

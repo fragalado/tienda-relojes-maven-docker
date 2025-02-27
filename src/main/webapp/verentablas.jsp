@@ -1,7 +1,7 @@
 <%-- 
     Document   : verentablas
     Created on : 25 feb 2025, 13:05:45
-    Author     : ruben
+    Author     : Alvaro Duarte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -17,8 +17,9 @@ import jakarta.persistence.TemporalType;
 import java.time.LocalDateTime;
 
 /**
- *
- * @author ruben
+ * Entidad Producto que representa la tabla productos de la base de datos
+ * 
+ * @author Alvaro Duarte
  */
 @Entity
 @Table(name = "productos")

@@ -1,7 +1,7 @@
 <%-- 
     Document   : verenbox
     Created on : 25 feb 2025, 12:22:07
-    Author     : ruben
+    Author     : Alvaro Duarte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

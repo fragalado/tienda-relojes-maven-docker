@@ -21,8 +21,9 @@ import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- *
- * @author ruben
+ * Servlet para Principal
+ * 
+ * @author Alvaro Duarte
  */
 @WebServlet(name = "PrincipalServlet", urlPatterns = { "/PrincipalServlet" })
 public class PrincipalServlet extends HttpServlet {

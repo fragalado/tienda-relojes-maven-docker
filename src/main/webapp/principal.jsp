@@ -1,7 +1,7 @@
 <%-- 
     Document   : principal
     Created on : 24 feb 2025, 12:02:41
-    Author     : ruben
+    Author     : Alvaro Duarte
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

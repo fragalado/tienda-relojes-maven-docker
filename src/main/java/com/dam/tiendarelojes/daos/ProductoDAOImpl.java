@@ -16,7 +16,7 @@ import org.hibernate.query.Query;
 /**
  * Implementacion de la interfaz ProductoDAO
  *
- * @author ruben
+ * @author Alvaro Duarte
  */
 public class ProductoDAOImpl implements ProductoDAO {
 
