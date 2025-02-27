@@ -121,7 +121,6 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("validacionErronea.jsp");
             }
         } catch (Exception e) {
-            System.out.println("Ha entrado en el catch de LoginServlet");
             response.sendRedirect("ErrorServlet");
         }
 

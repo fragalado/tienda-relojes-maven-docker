@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="java.util.List, com.dam.tiendarelojes.dto.ProductoDto" %>
+<% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>
+<% response.setHeader("Pragma", "no-cache"); %>
+<% response.setHeader("Expires", "0"); %>
 <%
     // Verificar si hay sesión activa
     HttpSession sesion = request.getSession(false);

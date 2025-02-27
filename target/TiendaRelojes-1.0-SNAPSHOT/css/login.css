@@ -92,3 +92,27 @@ footer {
     font-size: 0.9em;
     color: #666;
 }
+
+/* Alerta de logout */
+.alert {
+    position: relative;
+    padding: 1rem 10px;
+    margin-bottom: 1rem;
+    color: #052c65;
+    background-color: #cfe2ff;
+    border: 1px solid #9ec5fe;
+    border-radius: 2px;
+}
+.alert-primary {
+    color: #052c65;
+    background-color: #cfe2ff;
+    border-color: #9ec5fe;
+}
+
+/* Mensaje Error JS */
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
