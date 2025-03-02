@@ -109,7 +109,10 @@
                     <p><strong>Precio:</strong> <span class="text-success"><%=producto.getPrecio()%>€</span></p>
 
                     <!-- Botón para comprar -->
-                    <!--<a href="#" class="btn btn-primary">Comprar</a>-->
+                    <form action="ComprarProductoServlet" method="post">
+                        <input style="display: none;" type="text" name="id" value="<%=producto.getId() %>">
+                        <button type="submit" class="btn btn-primary" <% if(producto.getEstaComprado()) { out.print("disabled");} %>>Comprar</button>
+                    </form>
                 </div>
             </div>
         </main>

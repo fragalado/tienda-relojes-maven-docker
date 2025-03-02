@@ -47,8 +47,9 @@ public class LoginServlet extends HttpServlet {
                 transaction = session.beginTransaction();
 
                 // Creamos los usuarios
-                Usuario usuario1 = new Usuario("53965130T", "123456");
-                Usuario usuario2 = new Usuario("53965131D", "123456");
+                Usuario usuario1 = new Usuario("05720732B", "123456");
+                Usuario usuario2 = new Usuario("05720733B", "123456");
+                Usuario usuario3 = new Usuario("05720734B", "123456");
 
                 // Creamos los productos
                 Producto producto1 = new Producto("Rolex Datejust",
@@ -74,6 +75,7 @@ public class LoginServlet extends HttpServlet {
                 // Guardamos los usuarios y los productos en la base de datos
                 session.save(usuario1);
                 session.save(usuario2);
+                session.save(usuario3);
                 session.save(producto1);
                 session.save(producto2);
                 session.save(producto3);

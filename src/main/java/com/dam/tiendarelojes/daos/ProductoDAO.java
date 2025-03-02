@@ -47,4 +47,12 @@ public interface ProductoDAO {
      */
     public List<ProductoDto> obtenerTodosLosProductosDeUnUsuarioPorDNI(int id);
 
+    /**
+     * Metodo que compra un producto pasado por id
+     * 
+     * @param idProducto Id del producto a comprar
+     * @param idUsuario  Id del usuario que lo compra
+     */
+    public void comprarProducto(int idProducto, int idUsuario);
+
 }

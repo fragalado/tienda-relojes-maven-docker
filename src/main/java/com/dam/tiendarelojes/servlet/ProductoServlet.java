@@ -60,6 +60,7 @@ public class ProductoServlet extends HttpServlet {
                 resp.sendRedirect("ErrorServlet");
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             resp.sendRedirect("ErrorServlet");
         }
     }

@@ -13,14 +13,14 @@ services:
       - DB_PORT=3306
       - DB_NAME=duarte
       - DB_USER=root
-      - DB_PASSWORD=zepxuH-nyzfa5
+      - DB_PASSWORD=root
 
   db:
     image: mysql:8.4.4
     container_name: mysql-db-proyecto
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: zepxuH-nyzfa5
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: duarte
     ports:
       - "3307:3306"

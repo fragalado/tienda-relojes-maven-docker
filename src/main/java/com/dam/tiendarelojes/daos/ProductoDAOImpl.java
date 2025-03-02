@@ -6,6 +6,7 @@ package com.dam.tiendarelojes.daos;
 
 import com.dam.tiendarelojes.dto.ProductoDto;
 import com.dam.tiendarelojes.model.Producto;
+import com.dam.tiendarelojes.model.Usuario;
 import com.dam.tiendarelojes.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 
             // Convertir Producto a ProductoDto
             ProductoDto dto = new ProductoDto();
+            dto.setId(producto.getId());
             dto.setNombre(producto.getNombre());
             dto.setDetalle(producto.getDetalle());
             dto.setTipo(producto.getTipo());
@@ -127,6 +129,39 @@ public class ProductoDAOImpl implements ProductoDAO {
         }
 
         return productosDto;
+    }
+
+    @Override
+    public void comprarProducto(int idProducto, int idUsuario) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // Consulta HQL para obtener un producto por su id
+            Query<Producto> query = session.createQuery("FROM Producto p WHERE p.id = :id", Producto.class);
+            query.setParameter("id", idProducto);
+            Producto producto = query.getSingleResult();
+
+            // Comprobamos si el producto esta comprado
+            if (producto.getUsuario() != null) {
+                System.out.println("El producto ya esta comprado");
+                return;
+            }
+
+            // Obtenemos el usuario que lo compra
+            Query<Usuario> query2 = session.createQuery("FROM Usuario u WHERE u.id = :id", Usuario.class);
+            query2.setParameter("id", idUsuario);
+            Usuario usuario = query2.getSingleResult();
+
+            // Modificamos el producto
+            producto.setUsuario(usuario);
+            transaction = session.beginTransaction();
+            session.save(producto);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
     }
 
 }
